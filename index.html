@@ -6,14 +6,32 @@
     <title>Souvik Saha | IMSc Chennai</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS VARIABLES --- */
+        /* --- CSS VARIABLES (Light Mode Default) --- */
         :root {
             --primary-color: #2c3e50;    /* Deep Academic Blue */
             --accent-color: #3498db;     /* Bright Blue for links */
             --text-color: #444;          /* Softer black for reading */
+            --text-secondary: #666;      /* Grey for subtitles */
             --bg-body: #f4f7f6;          /* Very light grey background */
             --bg-card: #ffffff;          /* White for content boxes */
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --border-color: #eee;
+            --tag-bg: #eef6fb;
             --font-main: 'Lato', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        /* --- DARK MODE VARIABLES --- */
+        body.dark-mode {
+            --primary-color: #e0e0e0;    /* Light Grey for headers */
+            --accent-color: #5dade2;     /* Lighter Blue for links */
+            --text-color: #cfcfcf;       /* Light text */
+            --text-secondary: #a0a0a0;   /* Dimmer text */
+            --bg-body: #121212;          /* Deep Dark Background */
+            --bg-card: #1e1e1e;          /* Dark Grey for cards */
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --border-color: #333;
+            --tag-bg: #2c3e50;
         }
 
         /* --- BASIC SETUP --- */
@@ -24,6 +42,7 @@
             margin: 0;
             padding: 0;
             background-color: var(--bg-body);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         .container {
@@ -31,18 +50,28 @@
             margin: 50px auto;
             background: var(--bg-card);
             padding: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft, modern shadow */
+            box-shadow: var(--shadow);
             border-radius: 8px;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 0.8s ease-in-out;
         }
 
         /* --- HEADER SECTION --- */
         header {
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Pushes toggle button to right */
             gap: 40px;
             margin-bottom: 50px;
             padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         .profile-pic {
@@ -51,8 +80,9 @@
             background-color: #eee;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Photo pops out */
+            border: 4px solid var(--bg-card);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: border-color var(--transition-speed);
         }
 
         .header-text h1 {
@@ -60,13 +90,15 @@
             color: var(--primary-color);
             font-weight: 700;
             font-size: 2.2rem;
+            transition: color var(--transition-speed);
         }
 
         .subtitle {
             font-size: 1.1rem;
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 15px;
             line-height: 1.5;
+            transition: color var(--transition-speed);
         }
 
         /* Links Styling */
@@ -77,8 +109,25 @@
             transition: color 0.2s ease;
         }
         a:hover {
-            color: var(--primary-color);
             text-decoration: underline;
+            opacity: 0.8;
+        }
+
+        /* --- DARK MODE TOGGLE BUTTON --- */
+        #theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--border-color);
         }
 
         /* --- SECTIONS --- */
@@ -92,9 +141,9 @@
             margin-bottom: 25px;
             position: relative;
             padding-bottom: 10px;
+            transition: color var(--transition-speed);
         }
         
-        /* Adds a small decorative blue line under headings */
         h2::after {
             content: '';
             position: absolute;
@@ -105,21 +154,21 @@
             background-color: var(--accent-color);
         }
 
-        /* --- PUBLICATION CARDS (The "Fancy" Part) --- */
+        /* --- PUBLICATION CARDS --- */
         .paper-item {
-            background: #fff;
+            background: var(--bg-card);
             padding: 20px;
             margin-bottom: 20px;
-            border-left: 4px solid var(--accent-color); /* Blue accent bar */
+            border-left: 4px solid var(--accent-color);
             border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Subtle shadow in light mode */
+            border: 1px solid var(--border-color); /* Subtle border for dark mode visibility */
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color var(--transition-speed), border-color var(--transition-speed);
         }
 
-        /* Hover effect: lifts the paper up slightly */
         .paper-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .paper-title {
@@ -128,44 +177,50 @@
             font-size: 1.05rem;
             display: block;
             margin-bottom: 5px;
+            transition: color var(--transition-speed);
         }
 
         .paper-venue {
             display: inline-block;
-            background-color: #eef6fb; /* Light blue tag */
-            color: var(--primary-color);
+            background-color: var(--tag-bg);
+            color: var(--accent-color);
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 600;
             margin-top: 5px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* --- NEWS LIST --- */
-        ul {
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 12px;
-        }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 12px; }
 
         .news-date {
             font-family: 'Consolas', monospace;
             color: var(--primary-color);
             font-weight: bold;
-            background: #eee;
+            background: var(--border-color);
             padding: 2px 6px;
             border-radius: 3px;
             font-size: 0.85rem;
             margin-right: 10px;
+            transition: color var(--transition-speed), background-color var(--transition-speed);
         }
 
-        /* --- RESPONSIVE DESIGN (Mobile) --- */
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 700px) {
             .container { margin: 0; padding: 25px; border-radius: 0; }
             header { flex-direction: column; text-align: center; gap: 20px; }
-            h2::after { left: 50%; transform: translateX(-50%); } /* Center underline */
+            .header-content { flex-direction: column; }
+            #theme-toggle { margin-top: 10px; }
+            h2::after { left: 50%; transform: translateX(-50%); }
         }
     </style>
 </head>
@@ -173,20 +228,23 @@
 
 <div class="container">
     <header>
-        <img src="your-photo.jpg" alt="Souvik Saha" class="profile-pic">
-        
-        <div class="header-text">
-            <h1>Souvik Saha</h1>
-            <div class="subtitle">
-                PhD Candidate, Theoretical Computer Science<br>
-                The Institute of Mathematical Sciences (IMSc), HBNI<br>
-                Chennai, India
+        <div class="header-content">
+            <img src="your-photo.jpg" alt="Souvik Saha" class="profile-pic">
+            
+            <div class="header-text">
+                <h1>Souvik Saha</h1>
+                <div class="subtitle">
+                    PhD Candidate, Theoretical Computer Science<br>
+                    The Institute of Mathematical Sciences (IMSc), HBNI<br>
+                    Chennai, India
+                </div>
+                <p>
+                    Email: souviksaha41 [AT] gmail.com <br>
+                    <a href="cv.pdf">[ CV ]</a> &nbsp; <a href="https://scholar.google.com/citations?user=YKcPfVgAAAAJ&hl=en">[ Google Scholar ]</a> &nbsp; <a href="https://dblp.org/pid/257/0857-2.html">[ DBLP ]</a>
+                </p>
             </div>
-            <p>
-                Email: souviksaha41 [AT] gmail.com <br>
-                <a href="cv.pdf">[ CV ]</a> &nbsp; <a href="https://scholar.google.com/citations?user=YKcPfVgAAAAJ&hl=en">[ Google Scholar ]</a> &nbsp; <a href="https://dblp.org/pid/257/0857-2.html">[ DBLP ]</a>
-            </p>
         </div>
+        <button id="theme-toggle">🌙 Dark Mode</button>
     </header>
 
     <section id="about">
@@ -218,7 +276,7 @@
         
         <div class="paper-item">
             <span class="paper-title">Line Cover and Related Problems</span>
-            Matthias Bentert, Fedor V. Fomin, Petr A. Golovach, <strong>Souvik Saha</strong>, Sanjay Seetharaman, Anannya Upasana.<br>
+            Matthias Benter, Fedor V. Fomin, Petr A. Golovach, <strong>Souvik Saha</strong>, Sanjay Seetharaman, Anannya Upasana.<br>
             <span class="paper-venue">STACS 2026 (Just Accepted)</span> 
         </div>
 
@@ -255,8 +313,31 @@
             <li><strong> Local Coordinator:</strong> ACM School: "An Invitation to Algorithmic Game Theory", organized by, IMSc Chennai, ACM India and Google. </li>
         </ul>
     </section>
-
 </div>
+
+<script>
+    // JavaScript for Dark Mode Toggle
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved user preference
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        toggleButton.textContent = '☀️ Light Mode';
+    }
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            toggleButton.textContent = '☀️ Light Mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            toggleButton.textContent = '🌙 Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
 
 </body>
 </html>
