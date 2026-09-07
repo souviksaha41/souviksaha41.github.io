@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souvik Saha | IMSc Chennai</title>
+    <title>Souvik Saha | CMI Chennai</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* --- CSS VARIABLES (Light Mode Default) --- */
@@ -20,7 +20,6 @@
             --font-main: 'Lato', sans-serif;
             --transition-speed: 0.3s;
         }
-
         /* --- DARK MODE VARIABLES --- */
         body.dark-mode {
             --primary-color: #e0e0e0;    /* Light Grey for headers */
@@ -33,7 +32,6 @@
             --border-color: #333;
             --tag-bg: #2c3e50;
         }
-
         /* --- BASIC SETUP --- */
         body {
             font-family: var(--font-main);
@@ -44,7 +42,6 @@
             background-color: var(--bg-body);
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
-
         .container {
             max-width: 850px;
             margin: 50px auto;
@@ -55,7 +52,6 @@
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 0.8s ease-in-out;
         }
-
         /* --- HEADER SECTION --- */
         header {
             display: flex;
@@ -67,13 +63,11 @@
             border-bottom: 1px solid var(--border-color);
             position: relative;
         }
-
         .header-content {
             display: flex;
             align-items: center;
             gap: 40px;
         }
-
         .profile-pic {
             width: 160px;
             height: 160px;
@@ -84,7 +78,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: border-color var(--transition-speed);
         }
-
         .header-text h1 {
             margin: 0 0 5px 0;
             color: var(--primary-color);
@@ -92,7 +85,6 @@
             font-size: 2.2rem;
             transition: color var(--transition-speed);
         }
-
         .subtitle {
             font-size: 1.1rem;
             color: var(--text-secondary);
@@ -100,7 +92,6 @@
             line-height: 1.5;
             transition: color var(--transition-speed);
         }
-
         /* Links Styling */
         a {
             text-decoration: none;
@@ -112,7 +103,6 @@
             text-decoration: underline;
             opacity: 0.8;
         }
-
         /* --- DARK MODE TOGGLE BUTTON --- */
         #theme-toggle {
             background: none;
@@ -125,16 +115,13 @@
             font-size: 0.9rem;
             transition: all 0.2s ease;
         }
-
         #theme-toggle:hover {
             background-color: var(--border-color);
         }
-
         /* --- SECTIONS --- */
         section {
             margin-bottom: 50px;
         }
-
         h2 {
             color: var(--primary-color);
             font-size: 1.4rem;
@@ -153,7 +140,6 @@
             height: 3px;
             background-color: var(--accent-color);
         }
-
         /* --- PUBLICATION CARDS --- */
         .paper-item {
             background: var(--bg-card);
@@ -165,12 +151,10 @@
             border: 1px solid var(--border-color); /* Subtle border for dark mode visibility */
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color var(--transition-speed), border-color var(--transition-speed);
         }
-
         .paper-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
         .paper-title {
             font-weight: 700;
             color: var(--primary-color);
@@ -179,7 +163,6 @@
             margin-bottom: 5px;
             transition: color var(--transition-speed);
         }
-
         .paper-venue {
             display: inline-block;
             background-color: var(--tag-bg);
@@ -191,11 +174,9 @@
             margin-top: 5px;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
-
         /* --- NEWS LIST --- */
         ul { padding-left: 20px; }
         li { margin-bottom: 12px; }
-
         .news-date {
             font-family: 'Consolas', monospace;
             color: var(--primary-color);
@@ -207,13 +188,11 @@
             margin-right: 10px;
             transition: color var(--transition-speed), background-color var(--transition-speed);
         }
-
         /* --- ANIMATIONS --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 700px) {
             .container { margin: 0; padding: 25px; border-radius: 0; }
@@ -225,7 +204,6 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <header>
         <div class="header-content">
@@ -234,9 +212,9 @@
             <div class="header-text">
                 <h1>Souvik Saha</h1>
                 <div class="subtitle">
-                    PhD Candidate, Theoretical Computer Science<br>
-                    The Institute of Mathematical Sciences (IMSc), HBNI<br>
-                    Chennai, India
+                    National Post Doctoral Fellow (NPDF)<br>
+                    Chennai Mathematical Institute (CMI)<br>
+                    Siruseri, Chennai, India
                 </div>
                 <p>
                     Email: souviksaha41 [AT] gmail.com <br>
@@ -246,11 +224,13 @@
         </div>
         <button id="theme-toggle">🌙 Dark Mode</button>
     </header>
-
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I am a final-year PhD student at <a href="https://www.imsc.res.in/">IMSc Chennai</a>, advised by <a href="https://sites.google.com/view/sakethome/home?authuser=0">Prof. Saket Saurabh</a>. 
+            I am a National Post Doctoral Fellow at the <a href="https://www.cmi.ac.in/">Chennai Mathematical Institute (CMI)</a>, hosted by <a href="https://pranabendu.bitbucket.io/">Pranabendu Misra</a>.
+        </p>
+        <p>
+            I received my PhD from <a href="https://www.imsc.res.in/">IMSc Chennai</a>, where I was advised by <a href="https://sites.google.com/view/sakethome/home?authuser=0">Prof. Saket Saurabh</a>.
         </p>
         <p>
             My research interests lie broadly in algorithms with a specific focus on:
@@ -261,17 +241,16 @@
             <li>Graph Algorithms</li>
         </ul>
     </section>
-
     <section id="news">
         <h2>Recent News</h2>
         <ul>
+            <li><span class="news-date">Sep 2026</span> Joined <a href="https://www.cmi.ac.in/">CMI</a> as a National Post Doctoral Fellow (NPDF), hosted by <a href="https://pranabendu.bitbucket.io/">Pranabendu Misra</a>.</li>
             <li><span class="news-date">Dec 2025</span> Gave a talk on "Partial Coverage on Biclique Free Instances" at  <a href="https://mtpa25.weebly.com/">MTPA</a> at IIT Madras.</li>
             <li><span class="news-date">Aug 2025</span> Received the ACM/IARCS and IJCAI Travel Grants.</li>
             <li><span class="news-date">Aug 2025</span> Presented a paper at IJCAI 2025 in Guangzhou China.</li>
-            <li><span class="news-date">Dec 2025</span> Gave a talk on <a href="https://apga2024.weebly.com/uploads/1/5/1/2/151202145/generalization_of_point_line_cover.pdf">"Generalizations of Point Line Cover"</a> at  <a href="https://apga2024.weebly.com/">APGA</a> in Bali, Indonesia.</li>
+            <li><span class="news-date">Dec 2024</span> Gave a talk on <a href="https://apga2024.weebly.com/uploads/1/5/1/2/151202145/generalization_of_point_line_cover.pdf">"Generalizations of Point Line Cover"</a> at  <a href="https://apga2024.weebly.com/">APGA</a> in Bali, Indonesia.</li>
         </ul>
     </section>
-
     <section id="publications">
         <h2>Selected Publications</h2>
         
@@ -280,19 +259,16 @@
             Matthias Benter, Fedor V. Fomin, Petr A. Golovach, <strong>Souvik Saha</strong>, Sanjay Seetharaman, Anannya Upasana.<br>
             <span class="paper-venue">STACS 2026 (Just Accepted)</span> 
         </div>
-
         <div class="paper-item">
             <span class="paper-title">Parameterized Reunion with Achromatic Number</span>
             Satyabrata Jana, <strong>Souvik Saha</strong>, Saket Saurabh, Anannya Upasana.<br>
             <span class="paper-venue">ISAAC 2025</span> 
         </div>
-
         <div class="paper-item">
             <span class="paper-title">More Efforts Towards Fixed-Parameter Approximability of Multiwinner Rules</span>
             Sushmita Gupta, Pallavi Jain, <strong>Souvik Saha</strong>, Saket Saurabh, Anannya Upasana.<br>
             <span class="paper-venue">IJCAI 2025</span> 
         </div>
-
         <div class="paper-item">
             <span class="paper-title">Parameterized Complexity of Generalizations of Edge Dominating Set</span>
             Shubhada Aute, Fahad Panolan, <strong>Souvik Saha</strong>, Saket Saurabh, Anannya Upasana.<br>
@@ -301,13 +277,12 @@
         
         <div class="paper-item">
             <span class="paper-title">Parameterized Approximation Scheme for Biclique-free Max k-Weight SAT and Max Coverage</span>
-            Pallavi Jain, Fahad Panolan, Lawqueen Kanesh, Fahad Panolan, <strong>Souvik Saha</strong>, Abhishek Sahu, Saket Saurabh, Anannya Upasana.<br>
+            Pallavi Jain, Lawqueen Kanesh, Fahad Panolan, <strong>Souvik Saha</strong>, Abhishek Sahu, Saket Saurabh, Anannya Upasana.<br>
             <span class="paper-venue">SODA 2023</span> 
         </div>
     </section>
-
     <section id="teaching">
-        <h2>Teaching & Service</h2>
+        <h2>Teaching &amp; Service</h2>
         <ul>
             <li><strong>Teaching Assistant:</strong> Approximation Algorithms (Jan-Apr 2023), Parameterized Complexity (Jan-Apr 2022) at IMSc.</li>
             <li><strong>Volunteer:</strong> IJCAI 2025, Guangzhou.</li>
@@ -315,30 +290,24 @@
         </ul>
     </section>
 </div>
-
 <script>
     // JavaScript for Dark Mode Toggle
     const toggleButton = document.getElementById('theme-toggle');
     const body = document.body;
-
-    // Check for saved user preference
-    if (localStorage.getItem('theme') === 'dark') {
+    // Check for saved user preference (storage may be unavailable in some contexts)
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
+    if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
         toggleButton.textContent = '☀️ Light Mode';
     }
-
     toggleButton.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         
-        if (body.classList.contains('dark-mode')) {
-            toggleButton.textContent = '☀️ Light Mode';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            toggleButton.textContent = '🌙 Dark Mode';
-            localStorage.setItem('theme', 'light');
-        }
+        const isDark = body.classList.contains('dark-mode');
+        toggleButton.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
     });
 </script>
-
 </body>
 </html>
