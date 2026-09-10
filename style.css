@@ -81,7 +81,6 @@ a:focus-visible {
 .label,
 .site-nav a,
 .wordmark,
-.theme-toggle,
 .section > h2,
 .pub-venue,
 .when,
@@ -151,14 +150,46 @@ header.site {
   border-bottom-color: var(--accent);
 }
 
+.nav-sep {
+  align-self: center;
+  width: 1px;
+  height: 0.9rem;
+  background: var(--rule);
+  margin: 0 -0.35rem 0 0.1rem;
+}
+
 .theme-toggle {
-  background: none;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: -6px 0;
+  padding: 0;
   border: 0;
-  padding: 0.2rem 0;
+  border-radius: 50%;
+  background: none;
   color: var(--ink-faint);
   cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
-.theme-toggle:hover { color: var(--ink); }
+.theme-toggle:hover { color: var(--ink); background: var(--paper-2); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.theme-toggle svg { display: block; }
+.theme-toggle .i-sun { display: none; }
+.theme-toggle[data-mode="dark"] .i-sun { display: block; }
+.theme-toggle[data-mode="dark"] .i-moon { display: none; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* --- Intro block (home page) --------------------------------------- */
 .intro {

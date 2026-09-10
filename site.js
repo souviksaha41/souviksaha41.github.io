@@ -14,7 +14,7 @@
   }
   function paint() {
     var dark = current() === 'dark';
-    btn.textContent = dark ? 'Light' : 'Dark';
+    btn.setAttribute('data-mode', dark ? 'dark' : 'light');
     btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
   }
 
